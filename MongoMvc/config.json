@@ -1,4 +1,5 @@
 {
-  "mongoconnection": "mongodb://localhost:27017",
-  "database": "mongomvc"
+  "collection": "speakers",
+  "database": "mongomvc",
+  "mongoconnection": "mongodb://localhost:27017"
 }
