@@ -6,6 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
+using MongoDB.Bson.Serialization.Conventions;
 using Microsoft.Framework.DependencyInjection;
 
 namespace MongoMvc
@@ -14,6 +15,10 @@ namespace MongoMvc
     {
         public Startup(IHostingEnvironment env)
         {
+            // MongoDB objects attributes naming conventions
+            var conventionPack = new ConventionPack();
+            conventionPack.Add(new CamelCaseElementNameConvention());
+            ConventionRegistry.Register("CamelCase", conventionPack, t => true);
         }
 
         // This method gets called by a runtime.
