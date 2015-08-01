@@ -76,4 +76,4 @@ public async void Update(Speaker speaker)
 * run `dnu build`
 * run `dnx . kestrel`
 
-If you are using _Visual Studio Code_ just open this directory as project source and you should be able to work with project stright from the editor.
+If you are using _Visual Studio Code_ just open this directory as project source and you should be able to work with project straight from the editor.
