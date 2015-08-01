@@ -4,6 +4,8 @@ using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Runtime;
 using MongoDB.Bson.Serialization.Conventions;
+using MongoMvc.Data;
+using MongoMvc.Repository;
 
 namespace MongoMvc
 {
@@ -33,6 +35,10 @@ namespace MongoMvc
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
+            //configure the options <classname> and bind from the configuration, uses the IOptions interface Microsoft.Framework.Options
+            services.Configure<Settings>(Configuration);
+            //add the speaker repository to the service collection
+            services.AddSingleton<ISpeakerRespository, SpeakerRepository>();
         }
 
         // Configure is called after ConfigureServices is called.
