@@ -1,6 +1,3 @@
-using System;
-using MongoDB.Driver;
-
 namespace MongoMvc.Data
 {
     public class Settings
