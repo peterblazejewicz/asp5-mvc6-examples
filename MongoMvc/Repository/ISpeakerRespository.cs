@@ -1,19 +1,19 @@
+using MongoDB.Bson;
+using MongoMvc.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MongoMvc.Models;
-using MongoDB.Bson;
 
 namespace MongoMvc.Repository
 {
-    interface ISpeakerRespository
+    public interface ISpeakerRespository
     {
         Task<IEnumerable<Speaker>> AllSpeakers();
 
         Task<Speaker> GetById(ObjectId id);
 
-        void Add(Speaker speaker);
+        Task Add(Speaker speaker);
 
-        void Update(Speaker speaker);
+        Task Update(Speaker speaker);
 
         Task<bool> Remove(ObjectId id);
     }

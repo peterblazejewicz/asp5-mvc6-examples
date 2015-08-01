@@ -19,7 +19,7 @@ namespace MongoMvc.Repository
             this._database = Connect();
         }
 
-        public async void Add(Speaker speaker)
+        public async Task Add(Speaker speaker)
         {
             await _database.GetCollection<Speaker>(_settings.Collection)
                 .InsertOneAsync(speaker);
@@ -52,7 +52,7 @@ namespace MongoMvc.Repository
             return (result.DeletedCount == 1);
         }
 
-        public async void Update(Speaker speaker)
+        public async Task Update(Speaker speaker)
         {
             var filter = Builders<Speaker>.Filter;
             var query = filter.Where(x => x.Id == speaker.Id);
