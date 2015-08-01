@@ -2,12 +2,16 @@
   "webroot": "wwwroot",
   "version": "1.0.0-*",
   "dependencies": {
+    "Kestrel": "1.0.0-beta6",
     "Microsoft.AspNet.Mvc": "6.0.0-beta6",
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
-    "Kestrel": "1.0.0-beta6",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
     "Microsoft.AspNet.StaticFiles": "1.0.0-beta6",
-    "mongocsharpdriver": "2.0.1"
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
+    "Microsoft.Framework.Configuration": "1.0.0-beta6",
+    "MongoDB.Bson": "2.0.1",
+    "MongoDB.Driver.Core": "2.0.1",
+    "MongoDB.Driver": "2.0.1"
   },
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini",
