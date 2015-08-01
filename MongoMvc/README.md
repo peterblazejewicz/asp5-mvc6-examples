@@ -23,11 +23,11 @@ private MongoDatabase Connect()
     return database;
 }
 // 2.*
-private MongoDatabase Connect()
+private IMongoDatabase Connect()
 {
     var client = new MongoClient(_settings.MongoConnection);
     var database = client.GetDatabase(_settings.Database);
-    return (MongoDatabase)database;
+    return database;
 }
 ```
 * the settings objects also contains `Collection` key:
