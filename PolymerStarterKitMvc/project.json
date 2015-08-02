@@ -1,0 +1,52 @@
+{
+  "authors": ["Peter Blazejewicz"],
+  "description": "Polymer Starter Kit running MVC application - light version.",
+  "version": "1.0.0-*",
+  "webroot": "app",
+
+  "dependencies": {
+    "Microsoft.AspNet.Diagnostics": "1.0.0-beta6",
+    "Microsoft.AspNet.Mvc": "6.0.0-beta6",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta6",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta6",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta6",
+    "Microsoft.AspNet.Tooling.Razor": "1.0.0-beta6",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
+    "Microsoft.Framework.Logging": "1.0.0-beta6",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta6",
+    "Kestrel": "1.0.0-beta6"
+  },
+
+  "commands": {
+    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini",
+    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini"
+  },
+
+  "frameworks": {
+    "dnx451": {},
+    "dnxcore50": {}
+  },
+
+  "exclude": [
+    "app",
+    "node_modules",
+    "bower_components"
+  ],
+  "publishExclude": [
+    "node_modules",
+    "bower_components",
+    "**.xproj",
+    "**.user",
+    "**.vspscc"
+  ],
+  "scripts": {
+    "prepublish": [
+      "npm install",
+      "bower install",
+      "gulp clean",
+      "gulp min"
+    ]
+  }
+}
