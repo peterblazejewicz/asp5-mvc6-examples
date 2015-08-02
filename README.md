@@ -13,7 +13,7 @@ The examples are based on many different resources, like posts from Microsoft De
 ![Building Web API using MVC 6 & MongoDB](assets/20150801231200.jpg)
 
 
-**Author**: Shayne Boyer  
+**Author**: Shayne Boyer
 **Original article**: [http://tattoocoder.azurewebsites.net/building-vnext-web-api-using-mvc-6-mongodb-azure/](http://tattoocoder.azurewebsites.net/building-vnext-web-api-using-mvc-6-mongodb-azure/)
 
 ### Polymer Starter Kit Mvc
@@ -24,5 +24,5 @@ A simple implementation of light version of Polymer Starter Kit with `beta6` bas
 
 **Author**: Peter Blazejewicz
 
-## Compilation Author0
+## Compilation Author
 @peterblazejewicz
