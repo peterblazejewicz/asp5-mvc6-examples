@@ -1,0 +1,29 @@
+﻿@using System.Security.Claims
+
+@if (User.IsSignedIn())
+{
+    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()!</a>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    </form>
+}
+else if (User.Identity.IsAuthenticated)
+{
+    //This code block necessary only for NTLM authentication
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <p class="nav navbar-text navbar-right">Hello, @User.GetUserName()!</p>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a id="registerLink" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a id="loginLink" asp-controller="Account" asp-action="Login">Log in</a></li>
+    </ul>
+}
