@@ -31,8 +31,13 @@ namespace TwilioMakeAndReceiveCalls.Controllers
         [HttpPost]
         public IActionResult MakeCall(string number)
         {
-            var client = new TwilioRestClient("", "");
-            var results = client.InitiateOutboundCall("Twilio.MyNumber", "number", "http://www.televisiontunes.com/uploads/audio/Star%20Wars%20-%20The%20Imperial%20March.mp3");
+            var client = new TwilioRestClient(
+              _twilioSettings.Options.AccountSid,
+              _twilioSettings.Options.AuthToken
+            );
+            var results = client.InitiateOutboundCall(
+              _twilioSettings.Options.MyOwnNumber,
+              number, "http://www.televisiontunes.com/uploads/audio/Star%20Wars%20-%20The%20Imperial%20March.mp3");
             if (results.RestException != null)
             {
                 return Content(results.RestException.Message);
@@ -44,7 +49,7 @@ namespace TwilioMakeAndReceiveCalls.Controllers
         public IActionResult ReceiveCall()
         {
             var twiml = new TwilioResponse();
-            twiml.Say("You are calling Marcos Placona").Dial("MyOwnNumber");
+            twiml.Say("You are calling Marcos Placona").Dial(_twilioSettings.Options.MyOwnNumber);
             return Content(twiml.ToString());
         }
 
