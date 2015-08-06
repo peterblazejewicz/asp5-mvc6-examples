@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+.<div class="page-header">
+  <h1>Make Call <small>Make Call MVC</small></h1>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+
+    @using (Html.BeginForm("MakeCall", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            Enter a number: @Html.TextBox("number")
+            <button type="submit" class="btn btn-primary">Make Call</button>
+        </div>
+    }
+    
+  </div>
+</div>
