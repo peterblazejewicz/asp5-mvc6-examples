@@ -5,18 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Twilio;
 using Twilio.TwiML;
+using Microsoft.Framework.OptionsModel;
 
 namespace TwilioMakeAndReceiveCalls.Controllers
 {
     public class HomeController : Controller
     {
 
-        private readonly TwilioSettings _twilioSettings;
+        private readonly IOptions<TwilioSettings> _twilioSettings;
 
         /*
           Twilio settings are injected via dependency injectio
         */
-        public HomeController(TwilioSettings twilioSettings)
+        public HomeController(IOptions<TwilioSettings> twilioSettings)
         {
             _twilioSettings = twilioSettings;
         }
