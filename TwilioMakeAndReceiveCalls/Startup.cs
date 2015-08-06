@@ -22,6 +22,7 @@ namespace TwilioMakeAndReceiveCalls
             // Setup configuration sources.
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
+                 .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -33,10 +34,11 @@ namespace TwilioMakeAndReceiveCalls
         {
             // Add MVC services to the services container.
             services.AddMvc();
-
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
+            //configure the options <classname> and bind from the configuration, uses the IOptions interface Microsoft.Framework.Options
+            services.Configure<TwilioSettings>(Configuration.GetConfigurationSection("Twilio"));
         }
 
         // Configure is called after ConfigureServices is called.

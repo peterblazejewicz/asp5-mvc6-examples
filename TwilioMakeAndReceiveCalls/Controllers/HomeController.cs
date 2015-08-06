@@ -10,6 +10,17 @@ namespace TwilioMakeAndReceiveCalls.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly TwilioSettings _twilioSettings;
+
+        /*
+          Twilio settings are injected via dependency injectio
+        */
+        public HomeController(TwilioSettings twilioSettings)
+        {
+            _twilioSettings = twilioSettings;
+        }
+
         public IActionResult Index()
         {
             return View();
