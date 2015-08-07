@@ -1,15 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Runtime;
+using Twilio;
 
 namespace TwilioCallLogConsole
 {
     public class Program
     {
-        private readonly string basePath;
         public IApplicationEnvironment ApplicationEnvironment { get; set; }
         public Program(IApplicationEnvironment app,
                IRuntimeEnvironment runtime,
@@ -22,10 +19,24 @@ namespace TwilioCallLogConsole
             var configuration = new ConfigurationBuilder(ApplicationEnvironment.ApplicationBasePath)
                 .AddJsonFile("config.json", true)
                 .Build().GetConfigurationSection("Twilio");
-            Console.WriteLine(configuration.Get("AccountSid"));
-            Console.WriteLine(configuration.Get("AuthToken"));
-            Console.WriteLine(configuration.Get("MyOwnNumber"));
-            Console.WriteLine(configuration.Get("MyTwilioNumber"));
+            // Instantiate a new Twilio Rest Client
+            var client = new TwilioRestClient(
+              configuration.Get("AccountSid"),
+              configuration.Get("AuthToken")
+            );
+            // Select all calls from my account
+            var calls = client.ListCalls(new CallListRequest());
+            // Check for any exceptions
+            if (calls.RestException != null)
+            {
+                throw new FormatException(calls.RestException.Message);
+            }
+            // Loop through them and show information
+            foreach (var call in calls.Calls)
+            {
+                var callDetails = $"From: {call.From}, Day: {call.DateCreated}, Duration: {call.Duration}s";
+                Console.WriteLine(callDetails);
+            }
             Console.ReadLine();
         }
     }
