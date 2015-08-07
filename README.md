@@ -16,6 +16,14 @@ The examples are based on many different resources, like posts from Microsoft De
 **Author**: Shayne Boyer
 **Original article**: [http://tattoocoder.azurewebsites.net/building-vnext-web-api-using-mvc-6-mongodb-azure/](http://tattoocoder.azurewebsites.net/building-vnext-web-api-using-mvc-6-mongodb-azure/)
 
+### Twilio Call Console Log Application
+
+[Twilio Blog](https://www.twilio.com/blog/2015/08/getting-started-with-asp-net-5-and-visual-studio-code-on-a-mac.html)
+> How to get started with setting up your .NET development environment on a Mac running Yosemite and show you how to build a Console and an ASP.NET MVC 6 call log application using Visual Studio Code and ASP.NET 5.
+
+![Twilio Call Console Log Application](assets/20150807232850.jpg)
+
+
 ### Polymer Starter Kit Mvc
 
 A simple implementation of light version of Polymer Starter Kit with `beta6` based Web Application Basic template MVC6 project:
