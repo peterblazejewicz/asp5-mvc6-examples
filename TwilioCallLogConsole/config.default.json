@@ -1,8 +1,0 @@
-{
-  "Twilio": {
-    "AccountSid": "TWILIO_ACCOUNT_SID",
-    "AuthToken": "TWILIO_AUTH_TOKEN",
-    "MyOwnNumber": "MY_NUMBER",
-    "MyTwilioNumber": "TWILIO_NUMBER"
-  }
-}

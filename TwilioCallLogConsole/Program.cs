@@ -7,22 +7,28 @@ namespace TwilioCallLogConsole
 {
     public class Program
     {
-        public IApplicationEnvironment ApplicationEnvironment { get; set; }
-        public Program(IApplicationEnvironment app,
-               IRuntimeEnvironment runtime,
-               IRuntimeOptions options)
+        public IRuntimeOptions Options { get; set; }
+        public IConfiguration Configuration { get; set; }
+
+        public Program(IRuntimeOptions options)
         {
-            ApplicationEnvironment = app;
+            this.Options = options;
         }
         public void Main(string[] args)
         {
-            var configuration = new ConfigurationBuilder(ApplicationEnvironment.ApplicationBasePath)
-                .AddJsonFile("config.json", true)
-                .Build().GetConfigurationSection("Twilio");
+            // Setup configuration sources.
+            // The order in which Configuration is built
+            // is important
+            var builder = new ConfigurationBuilder(Options.ApplicationBaseDirectory)
+                .AddJsonFile("config.json")
+                .AddEnvironmentVariables()
+                .AddUserSecrets()
+                .AddCommandLine(args);
+            Configuration = builder.Build();
             // Instantiate a new Twilio Rest Client
             var client = new TwilioRestClient(
-              configuration.Get("AccountSid"),
-              configuration.Get("AuthToken")
+              Configuration.Get("AccountSid"),
+              Configuration.Get("AuthToken")
             );
             // Select all calls from my account
             var calls = client.ListCalls(new CallListRequest());
@@ -37,6 +43,7 @@ namespace TwilioCallLogConsole
                 var callDetails = $"From: {call.From}, Day: {call.DateCreated}, Duration: {call.Duration}s";
                 Console.WriteLine(callDetails);
             }
+            Console.WriteLine(Options.ApplicationName);
             Console.ReadLine();
         }
     }

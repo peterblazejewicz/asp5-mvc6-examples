@@ -1,17 +1,21 @@
 {
   "version": "1.0.0-*",
   "description": "TwilioCallLogConsole Console Application",
+  "userSecretsId": "aspnt5-TwilioCallLogConsole-e35e5842-e2f0-42d9-b0cc-ad17331f50cfa",
   "tags": [
-    ""
+    "Twilio"
   ],
   "projectUrl": "",
   "licenseUrl": "",
   "dependencies": {
     "Twilio": "4.0.3",
-    "Microsoft.Framework.Configuration": "1.0.0-beta6",
+    "Microsoft.Framework.Configuration.CommandLine": "1.0.0-*",
+    "Microsoft.Framework.Configuration.EnvironmentVariables": "1.0.0-beta6",
     "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
-    "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6",
-    "Microsoft.Framework.Configuration.EnvironmentVariables": "1.0.0-beta6"
+    "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta6",
+    "Microsoft.Framework.Configuration": "1.0.0-beta6",
+    "Microsoft.Framework.Runtime.Interfaces": "1.0.0-*",
+    "SecretManager": "1.0.0-*"
   },
   "commands": {
     "run": "run"
