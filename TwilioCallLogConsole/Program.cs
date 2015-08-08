@@ -43,7 +43,6 @@ namespace TwilioCallLogConsole
                 var callDetails = $"From: {call.From}, Day: {call.DateCreated}, Duration: {call.Duration}s";
                 Console.WriteLine(callDetails);
             }
-            Console.WriteLine(Options.ApplicationName);
             Console.ReadLine();
         }
     }
