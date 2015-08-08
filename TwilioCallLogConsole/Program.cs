@@ -2,6 +2,7 @@ using System;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Runtime;
 using Twilio;
+using static System.Console;
 
 namespace TwilioCallLogConsole
 {
@@ -12,7 +13,7 @@ namespace TwilioCallLogConsole
 
         public Program(IRuntimeOptions options)
         {
-            this.Options = options;
+            Options = options;
         }
         public void Main(string[] args)
         {
@@ -41,9 +42,9 @@ namespace TwilioCallLogConsole
             foreach (var call in calls.Calls)
             {
                 var callDetails = $"From: {call.From}, Day: {call.DateCreated}, Duration: {call.Duration}s";
-                Console.WriteLine(callDetails);
+                WriteLine(callDetails);
             }
-            Console.ReadLine();
+            ReadLine();
         }
     }
 }
