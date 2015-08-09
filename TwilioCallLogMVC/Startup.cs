@@ -22,7 +22,13 @@ namespace TwilioCallLogMVC
             // Setup configuration sources.
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
+                .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
+            // development via user-secret
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets();
+            }
+            builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 

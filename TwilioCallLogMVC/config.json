@@ -1,5 +1,7 @@
 {
   "AppSettings": {
     "SiteTitle": "TwilioCallLogMVC"
-  }
+  },
+  "AccountSid": "TWILIO_ACCOUNT_SID",
+  "AuthToken": "TWILIO_AUTH_TOKEN"
 }
