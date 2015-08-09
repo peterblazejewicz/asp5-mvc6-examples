@@ -1,42 +1,49 @@
-# Welcome to ASP.NET 5 Preview
+# Twilio Call Log MVC
 
-We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
+This project is based on MVC project described in [Getting started with ASP.NET 5 and Visual Studio Code on a Mac](https://www.twilio.com/blog/2015/08/getting-started-with-asp-net-5-and-visual-studio-code-on-a-mac.html).
 
-ASP.NET 5 has been rearchitected to make it **lean** and **composable**. It's fully **open source** and available on [GitHub](http://go.microsoft.com/fwlink/?LinkID=517854).
-Your new project automatically takes advantage of modern client-side utilities like [Bower](http://go.microsoft.com/fwlink/?LinkId=518004) and [npm](http://go.microsoft.com/fwlink/?LinkId=518005) (to add client-side libraries) and [Gulp](http://go.microsoft.com/fwlink/?LinkId=518007) (for client-side build and automation tasks).
 
-We hope you enjoy the new capabilities in ASP.NET 5 and Visual Studio 2015.
-The ASP.NET Team
+![Twilio Call Log MVC](../assets/20150809190116.jpg)
 
-### You've created a new ASP.NET 5 project. [Learn what's new](http://go.microsoft.com/fwlink/?LinkId=518016)
+## Description
 
-### This application consists of:
-* Sample pages using ASP.NET MVC 6
-* [Gulp](http://go.microsoft.com/fwlink/?LinkId=518007) and [Bower](http://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side resources
-* Theming using [Bootstrap](http://go.microsoft.com/fwlink/?LinkID=398939)
+The project contains some modification compared to original blog post source code:
 
-#### NEW CONCEPTS
-* [The 'wwwroot' explained](http://go.microsoft.com/fwlink/?LinkId=518008)
-* [Configuration in ASP.NET 5](http://go.microsoft.com/fwlink/?LinkId=518012)
-* [Dependency Injection](http://go.microsoft.com/fwlink/?LinkId=518013)
-* [Razor TagHelpers](http://go.microsoft.com/fwlink/?LinkId=518014)
-* [Manage client packages using Gulp](http://go.microsoft.com/fwlink/?LinkID=517849)
-* [Develop on different platforms](http://go.microsoft.com/fwlink/?LinkID=517850)
+* the project file is modified to not use `dnxcore50` as Twilio package dependencies does not yet support it
+* the project is using `Configuration` to streamline application configuration: https://github.com/aspnet/Configuration
+* some syntax is updated to C# v6 (like string interpolation)
+* The `config.json` contains only template data. You could add your information there as per article information taking these bits from your Twilio dashboard. Instead of `config.json` keys th ectual code relies on `user-secret` tool.
+* the MVC project uses updated Bower and Gulp implementation as it runs in 'Development' mode by default (due to settings in `project.json`)
 
-#### CUSTOMIZE APP
-* [Add Controllers and Views](http://go.microsoft.com/fwlink/?LinkID=398600)
-* [Add Data using EntityFramework](http://go.microsoft.com/fwlink/?LinkID=398602)
-* [Add Authentication using Identity](http://go.microsoft.com/fwlink/?LinkID=398603)
-* [Add real time support using SignalR](http://go.microsoft.com/fwlink/?LinkID=398606)
-* [Add Class library](http://go.microsoft.com/fwlink/?LinkID=398604)
-* [Add Web APIs with MVC 6](http://go.microsoft.com/fwlink/?LinkId=518009)
-* [Add client packages using Bower](http://go.microsoft.com/fwlink/?LinkID=517848)
+```bash
+➜  TwilioCallLogConsole git:(master) ✗ dnx . restore
+➜  TwilioCallLogConsole git:(master) ✗ dnx . build
+➜  TwilioCallLogConsole git:(master) ✗ dnx . kestrel
+```
 
-#### DEPLOY
-* [Run your app locally](http://go.microsoft.com/fwlink/?LinkID=517851)
-* [Run your app on ASP.NET Core 5](http://go.microsoft.com/fwlink/?LinkID=517852)
-* [Run commands in your 'project.json'](http://go.microsoft.com/fwlink/?LinkID=517853)
-* [Publish to Microsoft Azure Web Sites](http://go.microsoft.com/fwlink/?LinkID=398609)
-* [Publish to the file system](http://go.microsoft.com/fwlink/?LinkId=518019)
+## User Secrets
 
-We would love to hear your [feedback](http://go.microsoft.com/fwlink/?LinkId=518015)
+https://github.com/aspnet/Home/wiki/DNX-Secret-Configuration
+
+>  a user secrets configuration system which is designed to store development configuration values in a location that's outside of your projects source tree. The user secrets configuration system comes in two parts, a global tool and a ConfigurationSource. The global tool allows you to manage secrets (add, remove, list) whilst the ConfigurationSource adds the values stored into the configuration system so that you can pass them to whatever APIs require them.
+
+When configuration for Twilio is moved outside of project the code in `Project.cs` does not require any change. If we don't provide secrets via `AddUserSecrets()`, the keys from `config.json` are used. You can also pass them as environment variables:
+
+```
+➜ dnu install SecretManager
+➜ user-secret set AccountSid AC4e2c0434f43d9155ed52f1084xxxxxx
+info: Successfully saved AccountSid = AC4e2c0434f43d9155ed52f1084xxxxxx to the secret store.
+➜ user-secret set AuthToken 2b9374e10f5c70cae75478d7xxxxxx
+info: Successfully saved AuthToken = 2b9374e10f5c70cae75478d7xxxxxx to the secret store.
+```
+
+```
+➜ user-secret list
+info: AccountSid = AC4e2c0434f43d9155ed52f1084xxxxxx
+info: AuthToken = 2b9374e10f5c70cae75478d7xxxxxx
+```
+
+## Author
+
+* Marcos Placona
+* https://www.twilio.com/blog/author/marcos
