@@ -33,5 +33,9 @@ A simple implementation of light version of Polymer Starter Kit with `beta6` bas
 
 **Author**: Peter Blazejewicz
 
+### TODO/WIP
+* http://stephenwalther.com/archive/2015/01/12/asp-net-5-and-angularjs-part-1-configuring-grunt-uglify-and-angularjs
+* TwillioMakeAndReceiveCalls
+
 ## Compilation Author
 @peterblazejewicz
