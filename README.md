@@ -16,6 +16,16 @@ The examples are based on many different resources, like posts from Microsoft De
 **Author**: Shayne Boyer
 **Original article**: [http://tattoocoder.azurewebsites.net/building-vnext-web-api-using-mvc-6-mongodb-azure/](http://tattoocoder.azurewebsites.net/building-vnext-web-api-using-mvc-6-mongodb-azure/)
 
+### ASP.NET MVC 6, Part 1: Tag Helpers
+
+> the new Tag Helpers feature that can be used to clean up your Razor views.
+
+[Clean up your Razor views with the new tag helpers in ASP.NET MVC 6](https://visualstudiomagazine.com/articles/2015/08/04/asp-net-mvc-6-part-1-tag-helpers.aspx)
+
+![Clean up your Razor views with the new tag helpers in ASP.NET MVC 6](assets/20150812234309.jpg)
+
+**Author**: Eric Vogel
+
 ### Twilio Call Console Log Application
 
 [Twilio Blog](https://www.twilio.com/blog/2015/08/getting-started-with-asp-net-5-and-visual-studio-code-on-a-mac.html)

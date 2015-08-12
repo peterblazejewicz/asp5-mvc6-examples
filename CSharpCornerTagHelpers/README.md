@@ -2,6 +2,8 @@
 
 [ASP.NET MVC 6, Part 1: Tag Helpers](https://visualstudiomagazine.com/articles/2015/08/04/asp-net-mvc-6-part-1-tag-helpers.aspx)
 
+![Clean up your Razor views with the new tag helpers in ASP.NET MVC 6](../assets/20150812234309.jpg)
+
 ## How to run this project
 
 ```shell
@@ -12,7 +14,7 @@ dnx . kestrel
 
 ## Changes in implementation compared to original article
 
-* The project is based on 'Web Application Basic' template available both in Visual Studio and in `generator-aspnet` - instead using more simpler and not commonly used samples from ASP.NET home project repository.
+* The project does not require Visual Studio download. It is based on 'Web Application Basic' template available both in Visual Studio and in `generator-aspnet` - instead using more simpler and not commonly used samples from ASP.NET home project repository.
 To scaffold the same type of application using `generator-aspnet` choose `Web Application Basic ...` template:
 ```bash
 yo aspnet
