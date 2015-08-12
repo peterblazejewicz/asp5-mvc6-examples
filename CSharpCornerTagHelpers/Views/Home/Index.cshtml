@@ -1,0 +1,46 @@
+@using CSharpCornerTagHelpers.Models
+@model User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+      @if(!String.IsNullOrWhiteSpace(ViewBag.Success)){
+        <div class="alert alert-success" role="alert">@ViewBag.Success</div>
+      }
+      <form asp-controller="Home" asp-action="CreateUser" method="post" class="form-horizontal" role="form">
+        <fieldset>
+          <legend>Create User</legend>
+          <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+          <div class="form-group">
+              <label asp-for="Name" class="col-md-2 control-label"></label>
+              <div class="col-md-10">
+                  <input asp-for="Name" class="form-control" />
+                  <span asp-validation-for="Name" class="text-danger"></span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label asp-for="Address" class="col-md-2 control-label"></label>
+              <div class="col-md-10">
+                  <input asp-for="Address" class="form-control" />
+                  <span asp-validation-for="Address" class="text-danger"></span>
+              </div>
+          </div>
+          <div class="form-group">
+              <label asp-for="Age" class="col-md-2 control-label"></label>
+              <div class="col-md-10">
+                  <input asp-for="Age" class="form-control" />
+                  <span asp-validation-for="Age" class="text-danger"></span>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-md-offset-2 col-md-10">
+                  <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+</div>
