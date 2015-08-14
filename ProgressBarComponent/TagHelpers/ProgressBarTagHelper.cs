@@ -8,6 +8,8 @@ namespace ProgressBarComponent.TagHelpers
 {
     // You may need to install the Microsoft.AspNet.Razor.Runtime package into your project
     [TargetElement("div", Attributes = ProgressValueAttributeName)]
+    [TargetElement("div", Attributes = ProgressMinAttributeName)]
+    [TargetElement("div", Attributes = ProgressMaxAttributeName)]
     public class ProgressBarTagHelper : TagHelper
     {
 
