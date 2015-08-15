@@ -1,11 +1,66 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-.<div class="row">
-  <div class="col-xs-12">
-    <div bs-progress-min="1"
-         bs-progress-max="5"
-         bs-progress-value="4">
+<div class="row">
+  <div class="col-xs-6 col-md-4">
+    <div href="#" class="thumbnail">
+      <h3>Progress Bar Default</h3>
+      <p>
+        <code>progress-bar</code>
+      </p>
+      <div bs-progress-min="1"
+           bs-progress-max="100"
+           bs-progress-value="45">
+      </div>
+      <pre class="pre-scrollable">
+&lt;div bs-progress-min=&quot;1&quot;
+     bs-progress-max=&quot;100&quot;
+     bs-progress-value=&quot;45&quot;&gt;
+&lt;/div&gt;</pre>
+    </div>
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <div href="#" class="thumbnail">
+      <h3>Progress Bar Animated</h3>
+      <p>
+        <code>progress-bar progress-bar-success progress-bar-striped active</code>
+      </p>
+      <div bs-progress-style="success"
+           bs-progress-min="1"
+           bs-progress-max="5"
+           bs-progress-value="4"
+           bs-progress-active="true">
+      </div>
+      <pre class="pre-scrollable">
+&lt;div bs-progress-style=&quot;success&quot;
+     bs-progress-min=&quot;1&quot;
+     bs-progress-max=&quot;5&quot;
+     bs-progress-value=&quot;4&quot;
+     bs-progress-active=&quot;true&quot;&gt;
+&lt;/div&gt;</pre>
+    </div>
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <div href="#" class="thumbnail">
+      <h3>Progress Bar Striped</h3>
+      <p>
+        <code>progress-bar progress-bar-danger progress-bar-striped</code>
+      </p>
+      <div bs-progress-min="1"
+           bs-progress-max="100"
+           bs-progress-value="80"
+           bs-progress-style="danger"
+           bs-progress-striped="true"
+           bs-progress-label-visible="false">
+      </div>
+      <pre class="pre-scrollable">
+&lt;div bs-progress-min=&quot;1&quot;
+     bs-progress-max=&quot;100&quot;
+     bs-progress-value=&quot;80&quot;
+     bs-progress-style=&quot;danger&quot;
+     bs-progress-striped=&quot;true&quot;
+     bs-progress-label-visible=&quot;false&quot;&gt;
+&lt;/div&gt;</pre>
     </div>
   </div>
 </div>
