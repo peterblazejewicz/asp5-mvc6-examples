@@ -2,16 +2,25 @@
   "webroot": "wwwroot",
   "version": "1.0.0-*",
   "dependencies": {
+    "EntityFramework.Commands": "7.0.0-beta7",
+    "EntityFramework.SQLite": "7.0.0-beta7",
+    "Microsoft.AspNet.Diagnostics": "1.0.0-beta7",
     "Microsoft.AspNet.Mvc": "6.0.0-beta7",
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta7",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta7",
     "Microsoft.AspNet.StaticFiles": "1.0.0-beta7",
-    "Microsoft.AspNet.Diagnostics": "1.0.0-beta7"
+    "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta7",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta7",
+    "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta7",
+    "Microsoft.Framework.Logging": "1.0.0-beta7",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta7",
+    "Microsoft.Framework.Logging.Debug": "1.0.0-beta7"
   },
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini",
-    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini"
+    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini",
+    "ef": "EntityFramework.Commands"
   },
   "frameworks": {
     "dnx451": {},
