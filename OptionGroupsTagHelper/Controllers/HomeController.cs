@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using OptionGroupsTagHelper.ViewModels.Home;
 
 namespace OptionGroupsTagHelper.Controllers
 {
@@ -10,7 +11,8 @@ namespace OptionGroupsTagHelper.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var model = new CustomerViewModel();
+            return View(model);
         }
 
         public IActionResult About()
