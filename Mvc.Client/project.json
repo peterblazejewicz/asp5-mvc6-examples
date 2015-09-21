@@ -17,7 +17,15 @@
     "Microsoft.Framework.NotNullAttribute.Internal": {
       "type": "build",
             "version": "1.0.0-*"
-    }
+    },
+    "AspNet.Security.OAuth.GitHub": "1.0.0-*",
+    "AspNet.Security.OAuth.LinkedIn": "1.0.0-*",
+    "AspNet.Security.OAuth.WordPress": "1.0.0-*",
+    "AspNet.Security.OAuth.Yahoo": "1.0.0-*",
+    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-*",
+    "Microsoft.AspNet.Authentication.Google": "1.0.0-*",
+    "Microsoft.AspNet.Authentication.Twitter": "1.0.0-*",
+    "Microsoft.AspNet.Authentication.OpenIdConnect": "1.0.0-*"
   },
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini",
