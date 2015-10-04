@@ -6,5 +6,23 @@
     "jquery": "^2.1.4",
     "jquery-validation": "^1.14.0",
     "jquery-validation-unobtrusive": "^3.2.3"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/**/*",
+        "dist/js/bootstrap{.js,.min.js}",
+        "dist/fonts/**/*"
+      ]
+    },
+    "jquery": {
+      "main": "dist/**/*"
+    },
+    "jquery-validation": {
+      "main": "dist/jquery.validate{.js,.min.js}"
+    },
+    "jquery-validation-unobtrusive": {
+      "main": "jquery.validate.unobtrusive{.js,.min.js}"
+    }
   }
 }

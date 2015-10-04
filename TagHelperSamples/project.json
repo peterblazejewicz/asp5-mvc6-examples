@@ -20,6 +20,7 @@
 
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini",
+    "kestrel-dev": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini ASPNET_ENV=Development",
     "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini"
   },
 
