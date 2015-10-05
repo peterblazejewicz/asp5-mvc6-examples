@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.5",
+    "bootswatch": "^3.3.5+4",
     "font-awesome": "~4.4.0",
     "jquery": "^2.1.4",
     "jquery-validation": "^1.14.0",
@@ -15,6 +16,9 @@
         "dist/js/bootstrap{.js,.min.js}",
         "dist/fonts/**/*"
       ]
+    },
+    "bootswatch": {
+      "main": "paper/bootstrap{.css,.min.css}"
     },
     "font-awesome": {
       "main": [
