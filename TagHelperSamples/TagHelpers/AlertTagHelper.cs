@@ -8,7 +8,7 @@ using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 namespace TagHelperSamples.TagHelpers
 {
     // You may need to install the Microsoft.AspNet.Razor.Runtime package into your project
-    [TargetElement("alert")]
+    [HtmlTargetElement("alert")]
     public class AlertTagHelper : TagHelper
     {
         /// <summary>
