@@ -127,19 +127,18 @@ namespace TagHelperSamples.TagHelpers
             StringBuilder sb = new StringBuilder();
 
             if (dismissible)
-                sb.Append(
-                    "<button type =\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\r\n" +
-                    "   <span aria-hidden=\"true\">&times;</span>\r\n" +
-                    "</button>\r\n");
+                sb.Append($@"<button type =""button"" class=""close"" data-dismiss=""alert"" aria-label=""Close"">
+                    <span aria-hidden=""true"">&times;</span>
+                  </button>");
 
             if (string.IsNullOrEmpty(header))
                 sb.AppendLine($"<i class='fa fa-{icon}'></i> {messageText}");
             else
             {
                 sb.Append(
-                    $"<h3><i class='fa fa-{icon}'></i> {headerText}</h3>\r\n" +
-                    "<hr/>\r\n" +
-                    $"{messageText}\r\n");
+                    $@"<h3><i class='fa fa-{icon}'></i> {headerText}</h3>
+                      <hr/>
+                      {messageText}");
             }
             output.Content.SetContent(sb.ToString());
         }
