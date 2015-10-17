@@ -7,4 +7,4 @@ COPY . /app
 
 
 EXPOSE 5000
-ENTRYPOINT ["dnx", "-p", "project.json", "web"]
+ENTRYPOINT ["dnx", "-p", "project.json", "kestrel"]
