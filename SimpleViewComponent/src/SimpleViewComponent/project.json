@@ -44,11 +44,16 @@
     "**.vspscc"
   ],
   "scripts": {
-    "prepublish": [
+    "postrestore": [
       "npm install",
       "bower install",
       "gulp clean",
-      "gulp min"
+      "gulp min",
+	  "gulp bower"
     ]
-  }
+  },
+  "prebuild": [
+	"gulp clean",
+	"gulp min"
+  ]
 }
