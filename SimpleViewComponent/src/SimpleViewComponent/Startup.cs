@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SimpleViewComponent.Data;
 
 namespace SimpleViewComponent
 {
@@ -50,11 +51,11 @@ namespace SimpleViewComponent
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+			{
+				routes.MapRoute(RouteNames.Home, "", new { controller = "Home", action = "Index" });
+				routes.MapRoute(RouteNames.About, "about", new { controller = "Home", action = "About" });
+				routes.MapRoute(RouteNames.Contact, "contact", new { controller = "Home", action = "Contact" });
+			});
         }
 
         // Entry point for the application.
