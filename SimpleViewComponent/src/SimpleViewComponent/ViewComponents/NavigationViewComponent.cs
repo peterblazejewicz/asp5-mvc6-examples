@@ -11,9 +11,9 @@ namespace SimpleViewComponent.ViewComponents
 		{
 			var navigationItems = new[]
 			{
-				new ItemViewModel("Home", Url.RouteUrl(RouteNames.Home)),
-				new ItemViewModel("Contact", Url.RouteUrl(RouteNames.Contact)),
-				new ItemViewModel("About", Url.RouteUrl(RouteNames.About))
+				new ItemViewModel("Home", "Home", "Index"),
+				new ItemViewModel("Contact", "Home", "Contact"),
+				new ItemViewModel("About", "Home", "About")
 			};
 		
 			var viewModel = new ViewModel(navigationItems);
@@ -35,12 +35,15 @@ namespace SimpleViewComponent.ViewComponents
     public class ItemViewModel
     {
         public string Name { get; }
-        public string TargetUrl { get; }
+        public string Action { get; }
+        
+        public string Controller { get; }
 
-        public ItemViewModel(string name, string targetUrl)
+        public ItemViewModel(string name, string controller, string action)
         {
             Name = name;
-            TargetUrl = targetUrl;
+            Controller = controller;
+            Action = action;
         }
     }
 }
