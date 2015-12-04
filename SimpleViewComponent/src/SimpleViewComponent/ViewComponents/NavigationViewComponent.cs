@@ -1,25 +1,38 @@
 using System.Collections.Generic;
+using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Mvc;
 
 namespace SimpleViewComponent.ViewComponents
 {
     [ViewComponent(Name = "Navigation")]
-    public class NavigationViewComponent: ViewComponent
+    public class NavigationViewComponent : ViewComponent
     {
-		public IViewComponentResult Invoke()
-		{
-			var navigationItems = new[]
-			{
-				new ItemViewModel("Home", "Index", "Home"),
-				new ItemViewModel("Contact", "Contact", "Home"),
-				new ItemViewModel("About", "About", "Home")
-			};
-			var viewModel = new ViewModel(navigationItems);
-			return View(viewModel);
-		}
+        private IHostingEnvironment environment;
+
+        public NavigationViewComponent(IHostingEnvironment environment)
+        {
+            this.environment = environment;
+        }
+
+        public IViewComponentResult Invoke()
+        {
+            var navigationItems = new List<ItemViewModel>()
+            {
+                new ItemViewModel("Home", "Index", "Home"),
+                new ItemViewModel("Contact", "Contact", "Home"),
+                new ItemViewModel("About", "About", "Home")
+            };
+            if (environment.IsDevelopment())
+            {
+                var debugItem = new ItemViewModel("Debug", "Debug", "Home");
+                navigationItems.Add(debugItem);
+            }
+            var viewModel = new ViewModel(navigationItems);
+            return View(viewModel);
+        }
     }
-	
-	public class ViewModel
+
+    public class ViewModel
     {
         public IList<ItemViewModel> NavigationItems { get; }
 
@@ -31,7 +44,8 @@ namespace SimpleViewComponent.ViewComponents
 
     public class ItemViewModel
     {
-        public ItemViewModel(string link, string action, string controller) {
+        public ItemViewModel(string link, string action, string controller)
+        {
             ActionName = action;
             ControllerName = controller;
             LinkName = link;
