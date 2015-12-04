@@ -1,11 +1,10 @@
 @model SimpleViewComponent.ViewComponents.ViewModel
-
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        @foreach (var navigationItem in Model.NavigationItems)
+        @foreach (ItemViewModel navigationItem in Model.NavigationItems)
         {
             <li>
-                <a asp-controller="Home" asp-action="@navigationItem.Action">@navigationItem.Name</a>
+                <a asp-controller="@navigationItem.ControllerName" asp-action="@navigationItem.ActionName">@navigationItem.LinkName</a>
             </li>
         }
     </ul>

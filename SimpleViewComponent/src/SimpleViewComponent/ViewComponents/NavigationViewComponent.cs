@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Microsoft.AspNet.Mvc;
-using SimpleViewComponent.Data;
 
 namespace SimpleViewComponent.ViewComponents
 {
@@ -11,13 +10,11 @@ namespace SimpleViewComponent.ViewComponents
 		{
 			var navigationItems = new[]
 			{
-				new ItemViewModel("Home", "Home", "Index"),
-				new ItemViewModel("Contact", "Home", "Contact"),
-				new ItemViewModel("About", "Home", "About")
+				new ItemViewModel("Home", "Index", "Home"),
+				new ItemViewModel("Contact", "Contact", "Home"),
+				new ItemViewModel("About", "About", "Home")
 			};
-		
 			var viewModel = new ViewModel(navigationItems);
-		
 			return View(viewModel);
 		}
     }
@@ -34,16 +31,13 @@ namespace SimpleViewComponent.ViewComponents
 
     public class ItemViewModel
     {
-        public string Name { get; }
-        public string Action { get; }
-        
-        public string Controller { get; }
-
-        public ItemViewModel(string name, string controller, string action)
-        {
-            Name = name;
-            Controller = controller;
-            Action = action;
+        public ItemViewModel(string link, string action, string controller) {
+            ActionName = action;
+            ControllerName = controller;
+            LinkName = link;
         }
+        public string ActionName { get; }
+        public string ControllerName { get; }
+        public string LinkName { get; }
     }
 }
