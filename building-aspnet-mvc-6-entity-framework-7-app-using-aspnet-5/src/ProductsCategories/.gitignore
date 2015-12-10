@@ -207,3 +207,6 @@ FakesAssemblies/
 
 # wwwroot/lib
 wwwroot/lib
+
+# database
+ProductsCategories.db
