@@ -20,6 +20,25 @@ Show tables created by migration:
 sqlite> .tables
 ```
 
+Show tables schemas created by migration:
+```
+sqlite> .schema
+CREATE TABLE "Category" (
+    "CategoryId" INTEGER NOT NULL CONSTRAINT "PK_Category" PRIMARY KEY AUTOINCREMENT,
+    "CategoryName" TEXT
+);
+CREATE TABLE "Product" (
+    "ProductId" INTEGER NOT NULL CONSTRAINT "PK_Product" PRIMARY KEY AUTOINCREMENT,
+    "CategoryId" INTEGER NOT NULL,
+    "Price" INTEGER NOT NULL,
+    "ProductName" TEXT,
+    CONSTRAINT "FK_Product_Category_CategoryId" FOREIGN KEY ("CategoryId") REFERENCES "Category" ("CategoryId") ON DELETE CASCADE
+);
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK_HistoryRow" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+```
  
 ## Author
 
