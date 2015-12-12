@@ -8,6 +8,19 @@ The original article by [Mahesh Sabnis](http://www.dotnetcurry.com/author/mahesh
 
 This example modifies original article implementation by using SQLite as underlying database.
 
+## Documentation
+
+Open DB created by migration:
+```
+sqlite> .open ProductsCategories.db 
+```
+
+Show tables created by migration:
+```
+sqlite> .tables
+```
+
+ 
 ## Author
 
 @peterblazejewicz
