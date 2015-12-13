@@ -1,0 +1,31 @@
+@model ProductsCategories.Models.Product
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>
