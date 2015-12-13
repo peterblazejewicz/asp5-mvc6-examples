@@ -2,13 +2,20 @@
 	ViewData["Title"] = "Home Page"; 
 }
 
-<table class="table table-bordered table-striped">
-	<tr>
-		<td>
-			<a asp-controller="Categories" asp-action="Index">Categories</a>
-		</td>
-		<td>
-			<a asp-controller="Products" asp-action="Index">Product</a>
-		</td>
-	</tr>
-</table>
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">@ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-horizontal">
+            <li>
+                <a asp-controller="Categories" asp-action="Index">Categories</a>
+            </li>
+            <li>
+                <a asp-controller="Products" asp-action="Index">Product</a>
+            </li>
+        </ul>
+    </div>
+</div>
